@@ -11,5 +11,6 @@ const getTeamsByUid = (uid) => new Promise((resolve, reject) => {
     .then(({ data }) => resolve(utils.convertFirebaseCollection(data)))
     .catch((err) => reject(err));
 });
+console.warn(getTeamsByUid);
 
 export default { getTeamsByUid };
