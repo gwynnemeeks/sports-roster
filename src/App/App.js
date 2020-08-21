@@ -5,6 +5,7 @@ import 'firebase/auth';
 import fbConnection from '../helpers/data/connection';
 
 import NavBar from '../components/NavBar/NavBar';
+import SingleTeam from '../components/SingleTeam/SingleTeam';
 import TeamContainer from '../components/TeamContainer/TeamContainer';
 
 import './App.scss';
@@ -14,6 +15,7 @@ fbConnection();
 class App extends React.Component {
   state = {
     authed: false,
+    singleTeamId: '',
   }
 
   componentDidMount() {
@@ -30,12 +32,20 @@ class App extends React.Component {
     this.removeListener();
   }
 
+  setSingleTeam = (singleTeamId) => {
+    this.setState({ singleTeamId });
+  }
+
   render() {
-    const { authed } = this.state;
+    const { authed, singleTeamId } = this.state;
 
     const loadComponent = () => {
-      if (authed) {
-        return <TeamContainer />;
+      if (authed && singleTeamId.length === 0) {
+        return <TeamContainer setSingleTeam={this.setSingleTeam} />;
+      }
+
+      if (authed && singleTeamId.length > 0) {
+        return <SingleTeam teamId={singleTeamId} setSingleTeam={this.setSingleTeam}/>;
       }
       return '';
     };

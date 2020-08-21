@@ -11,6 +11,7 @@ const getTeamsByUid = (uid) => new Promise((resolve, reject) => {
     .then(({ data }) => resolve(utils.convertFirebaseCollection(data)))
     .catch((err) => reject(err));
 });
-console.warn(getTeamsByUid);
 
-export default { getTeamsByUid };
+const getSingleTeam = (teamId) => axios.get(`${baseUrl}/teams/${teamId}.json`);
+
+export default { getTeamsByUid, getSingleTeam };
