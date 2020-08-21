@@ -1,0 +1,38 @@
+{
+    "player1": {
+        "icon": "fab fa-pagelines",
+        "name": "Qalta",
+        "position": "Line Person",
+        "teamId": "Aces Wild"
+    },
+    "player2": {
+        "icon": "fab fa-pagelines",
+        "name": "Saelinde",
+        "position": "Line Person",
+        "teamId": "Aces Wild"
+    },
+    "player3": {
+        "icon": "fab fa-pagelines",
+        "name": "Nelca",
+        "position": "Line Person",
+        "teamId": "Aces Wild"
+    },
+    "player4": {
+        "icon": "fas fa-fan",
+        "name": "Letha",
+        "position": "Thrower",
+        "teamId": "Aces Wild"
+    },
+    "player5": {
+        "icon": "fas fa-wind",
+        "name": "Yesva",
+        "position": "Catcher",
+        "teamId": "Aces Wild"
+    },
+    "player6": {
+        "icon": "fab fa-sourcetree",
+        "name": "Khariaci",
+        "position": "War Dancer",
+        "teamId": "Aces Wild"
+    }
+}
