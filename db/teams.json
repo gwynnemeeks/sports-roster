@@ -1,0 +1,15 @@
+{
+    "team1": {
+        "name": "Aces Wild",
+        "players": "Wood Elves",
+        "coach": "The Underwater Banshee",
+        "uid": "eQG1wMIxajgfT1NgsARBKggXMVU2"
+        
+    },
+    "team2": {
+        "name": "Bovine Brawlers",
+        "players": "Cow Peeps",
+        "coach": "Moo",
+        "uid": "eQG1wMIxajgfT1NgsARBKggXMVU2"
+    }
+}
