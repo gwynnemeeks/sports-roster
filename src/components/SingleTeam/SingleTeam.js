@@ -34,7 +34,6 @@ class SingleTeam extends React.Component {
       const { setSingleTeam } = this.props;
 
       const playerCards = players.map((player) => <Players key={player.id} player={player}/>);
-      console.warn(playerCards);
 
       return (
             <div>
