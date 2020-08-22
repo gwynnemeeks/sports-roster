@@ -5,6 +5,7 @@ import Team from '../Team/Team';
 
 import authData from '../../helpers/data/authData';
 import teamData from '../../helpers/data/teamsData';
+import smash from '../../helpers/data/smash';
 
 class TeamContainer extends React.Component {
 static propTypes = {
@@ -26,7 +27,7 @@ static propTypes = {
   }
 
   deleteTeam = (teamId) => {
-    teamData.deleteTeam(teamId)
+    smash.removeTeamAndPlayers(teamId)
       .then(() => {
         this.getTeam();
       })
