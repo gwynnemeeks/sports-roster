@@ -15,17 +15,29 @@ static propTypes = {
     teams: [],
   }
 
-  componentDidMount() {
+  getTeam = () => {
     teamData.getTeamsByUid(authData.getUid())
       .then((teams) => this.setState({ teams }))
       .catch((err) => console.error('get teams failed', err));
+  }
+
+  componentDidMount() {
+    this.getTeam();
+  }
+
+  deleteTeam = (teamId) => {
+    teamData.deleteTeam(teamId)
+      .then(() => {
+        this.getTeam();
+      })
+      .catch((err) => console.error('delete team sucks', err));
   }
 
   render() {
     const { teams } = this.state;
     const { setSingleTeam } = this.props;
 
-    const teamCard = teams.map((team) => <Team key={team.id} team={team} setSingleTeam={setSingleTeam} />);
+    const teamCard = teams.map((team) => <Team key={team.id} team={team} setSingleTeam={setSingleTeam} deleteTeam={this.deleteTeam}/>);
 
     return (
             <div className="card-columns">
