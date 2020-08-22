@@ -20,9 +20,9 @@ class Team extends React.Component {
 
       return (
             <div className="card text-center">
-        <div className="card-header"><h5>{team.name}</h5></div>
+        <div className="card-header"><h3>{team.name}</h3></div>
         <div className="card-body">
-          <p className="card-title">{team.coach}</p>
+          <div className="card-title"><h4>{team.coach}</h4></div>
           <p className="card-text">{team.players}</p>
           <button className="btn btn-secondary" onClick={this.singleTeamEvent}>View Team Roster</button>
           </div>

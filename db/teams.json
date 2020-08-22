@@ -11,5 +11,11 @@
         "players": "Cow Peeps",
         "coach": "Moo",
         "uid": "eQG1wMIxajgfT1NgsARBKggXMVU2"
+    },
+    "team3": {
+        "name": "Punctured Lung",
+        "players": "Orcs",
+        "coach": "Smingleigh",
+        "uid": "eQG1wMIxajgfT1NgsARBKggXMVU2"
     }
 }

@@ -12,10 +12,10 @@ class Player extends React.Component {
 
       return (
             <div className="card text-center">
-        <div className="card-header"><h5>{player.name}</h5></div>
+        <div className="card-header"><h3>{player.name}</h3></div>
         <div className="card-body">
           <p className="card-title"><i className={player.icon}></i></p>
-          <p className="card-text">{player.position}</p>
+          <div className="card-text"><h4>{player.position}</h4></div>
           </div>
           </div>
       );
