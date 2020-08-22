@@ -2,21 +2,21 @@
     "player1": {
         "icon": "fab fa-pagelines fa-3x",
         "name": "Qalta",
-        "position": "Line Person",
+        "position": "Line Elf",
         "teamName": "Aces Wild",
         "teamId": "team1"
     },
     "player2": {
         "icon": "fab fa-pagelines fa-3x",
         "name": "Saelinde",
-        "position": "Line Person",
+        "position": "Line Elf",
         "teamName": "Aces Wild",
         "teamId": "team1"
     },
     "player3": {
         "icon": "fab fa-pagelines fa-3x",
         "name": "Nelca",
-        "position": "Line Person",
+        "position": "Line Elf",
         "teamName": "Aces Wild",
         "teamId": "team1"
     },
@@ -42,10 +42,87 @@
         "teamId": "team1"
     },
     "player7": {
-        "icon": "fab fa-sourcetree fa-3x",
+        "icon": "fas fa-tree fa-3x",
         "name": "Trent",
         "position": "Trent",
         "teamName": "Aces Wild",
         "teamId": "team1"
+    },
+    "player8": {
+        "icon": "fas fa-football-ball fa-3x",
+        "name": "Fingerz",
+        "position": "Thrower",
+        "teamName": "Punctured Lung",
+        "teamId": "team3"
+    },
+    "player9": {
+        "icon": "fas fa-fire fa-3x",
+        "name": "Gurk",
+        "position": "Line Orc",
+        "teamName": "Punctured Lung",
+        "teamId": "team3"
+    },
+    "player10": {
+        "icon": "fas fa-fire fa-3x",
+        "name": "Legs",
+        "position": "Line Orc",
+        "teamName": "Punctured Lung",
+        "teamId": "team3"
+    },
+    "player11": {
+        "icon": "fas fa-shield-alt fa-3x",
+        "name": "Big Bad Burt",
+        "position": "Black Orc Blocker",
+        "teamName": "Punctured Lung",
+        "teamId": "team3"
+    },
+    "player12": {
+        "icon": "fas fa-shield-alt fa-3x",
+        "name": "Eavy Metul",
+        "position": "Black Orc Blocker",
+        "teamName": "Punctured Lung",
+        "teamId": "team3"
+    },
+    "player13": {
+        "icon": "fas fa-shield-alt fa-3x",
+        "name": "Nostril",
+        "position": "Black Orc Blocker",
+        "teamName": "Punctured Lung",
+        "teamId": "team3"
+    },
+    "player14": {
+        "icon": "fas fa-shield-alt fa-3x",
+        "name": "Thrash",
+        "position": "Black Orc Blocker",
+        "teamName": "Punctured Lung",
+        "teamId": "team3"
+    },
+    "player15": {
+        "icon": "fas fa-running fa-3x",
+        "name": "Ghazghkull",
+        "position": "Blitzer",
+        "teamName": "Punctured Lung",
+        "teamId": "team3"
+    },
+    "player16": {
+        "icon": "fas fa-running fa-3x",
+        "name": "Nosnot",
+        "position": "Blitzer",
+        "teamName": "Punctured Lung",
+        "teamId": "team3"
+    },
+    "player17": {
+        "icon": "fas fa-running fa-3x",
+        "name": "Bantz",
+        "position": "Blitzer",
+        "teamName": "Punctured Lung",
+        "teamId": "team3"
+    },
+    "player18": {
+        "icon": "fas fa-running fa-3x",
+        "name": "Flash Arry",
+        "position": "Blitzer",
+        "teamName": "Punctured Lung",
+        "teamId": "team3"
     }
 }

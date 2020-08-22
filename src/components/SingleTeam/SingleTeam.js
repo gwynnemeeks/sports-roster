@@ -37,8 +37,8 @@ class SingleTeam extends React.Component {
 
       return (
             <div>
-                <h4>{team.name}</h4>
                 <button className="btn btn-danger" onClick={() => { setSingleTeam(''); }}>X</button>
+                <h2>{team.name}</h2>
                 <div className="card-columns">
                   {playerCards}
                 </div>
