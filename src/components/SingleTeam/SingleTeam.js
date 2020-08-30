@@ -62,12 +62,13 @@ class SingleTeam extends React.Component {
       return (
             <div>
               <button className="btn btn-warning" onClick={() => { this.setState({ showForm: !showForm }); }}>
-                <i className={showForm ? 'far fa-times-circle fa-lg' : 'far fa-plus-square fa-lg'}></i></button>
+              <i className={showForm ? 'far fa-times-circle fa-lg' : 'far fa-plus-square fa-lg'}></i></button>
+              <button className="btn btn-danger" onClick={() => { setSingleTeam(''); }}><i className="fas fa-sign-out-alt fa-flip-horizontal"></i></button>
           {showForm ? <PlayerForm teamId={teamId} createPlayer={this.createPlayer} /> : ''}
                 <h2>{team.name}</h2>
                 <div className="card-columns">
                   {playerCards}
-                  <button className="btn btn-danger" onClick={() => { setSingleTeam(''); }}>X</button>
+
                 </div>
             </div>
       );
