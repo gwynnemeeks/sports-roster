@@ -8,6 +8,7 @@ class Team extends React.Component {
       team: teamShape.teamShape,
       setSingleTeam: PropTypes.func.isRequired,
       deleteTeam: PropTypes.func.isRequired,
+      editTeam: PropTypes.func.isRequired,
     }
 
     singleTeamEvent = (e) => {
@@ -22,6 +23,12 @@ class Team extends React.Component {
       deleteTeam(team.id);
     }
 
+    editTeamEvent = (e) => {
+      e.preventDefault();
+      const { editTeam, team } = this.props;
+      editTeam(team);
+    }
+
     render() {
       const { team } = this.props;
 
@@ -33,6 +40,7 @@ class Team extends React.Component {
           <p className="card-text">{team.players}</p>
           <button className="btn btn-secondary" onClick={this.singleTeamEvent}>View Team Roster</button>
           <button className="btn btn-danger" onClick={this.deleteTeamEvent}>Delete Team</button>
+          <button className="btn btn-warning" onClick={this.editTeamEvent}>Edit Team</button>
           </div>
           </div>
       );

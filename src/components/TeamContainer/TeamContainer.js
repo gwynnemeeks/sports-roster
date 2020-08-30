@@ -16,6 +16,7 @@ static propTypes = {
   state = {
     teams: [],
     formOpen: false,
+    editTeam: {},
   }
 
   getTeam = () => {
@@ -45,16 +46,29 @@ static propTypes = {
       .catch((err) => console.error('create team went awry', err));
   }
 
+  editATeam = (teamToEdit) => {
+    this.setState({ formOpen: true, editTeam: teamToEdit });
+  }
+
+  updateTeam = (teamId, editedTeam) => {
+    teamData.updateTeam(teamId, editedTeam)
+      .then(() => {
+        this.getTeam();
+        this.setState({ formOpen: false, editTeam: {} });
+      })
+      .catch((err) => console.error('update boards failed', err));
+  }
+
   render() {
-    const { teams, formOpen } = this.state;
+    const { teams, formOpen, editTeam } = this.state;
     const { setSingleTeam } = this.props;
 
-    const teamCard = teams.map((team) => <Team key={team.id} team={team} setSingleTeam={setSingleTeam} deleteTeam={this.deleteTeam}/>);
+    const teamCard = teams.map((team) => <Team key={team.id} team={team} setSingleTeam={setSingleTeam} deleteTeam={this.deleteTeam} editATeam={this.editATeam}/>);
 
     return (
       <div>
         <button className="btn btn-warning" onClick={() => { this.setState({ formOpen: !formOpen }); }}><i className="far fa-plus-square fa-lg"></i></button>
-      { formOpen ? <TeamForm createTeam={this.createTeam}/> : '' }
+      { formOpen ? <TeamForm createTeam={this.createTeam} teamEditing={editTeam} updateTeam={this.updateTeam}/> : '' }
             <div className="card-columns">
               {teamCard}
             </div>

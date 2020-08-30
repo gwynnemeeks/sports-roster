@@ -6,12 +6,27 @@ import authData from '../../helpers/data/authData';
 class TeamForm extends React.Component {
     static propTypes = {
       createTeam: PropTypes.func.isRequired,
+      updateTeam: PropTypes.func.isRequired,
+      teamEditing: PropTypes.object.isRequired,
     }
 
     state = {
       name: '',
       players: '',
       coach: '',
+      isEditing: false,
+    }
+
+    componentDidMount() {
+      const { teamEditing } = this.props;
+      if (teamEditing.name) {
+        this.setState({
+          name: teamEditing.name,
+          players: teamEditing.players,
+          coach: teamEditing.coach,
+          isEditing: true,
+        });
+      }
     }
 
     changeNameEvent = (e) => {
@@ -41,10 +56,29 @@ class TeamForm extends React.Component {
         uid: authData.getUid(),
       };
       createTeam(newTeam);
-      console.warn('here is a new team', newTeam);
+    }
+
+    editTeamEvent = (e) => {
+      e.preventDefault();
+      const { name, players, coach } = this.state;
+      const { updateTeam, teamEditing } = this.props;
+
+      const teamWithChanges = {
+        name,
+        players,
+        coach,
+        uid: authData.getUid(),
+      };
+      updateTeam(teamEditing.id, teamWithChanges);
     }
 
     render() {
+      const {
+        name,
+        players,
+        coach,
+        isEditing,
+      } = this.state;
       return (
           <form className="col 6 offset-3">
               <div className="form-group">
@@ -54,6 +88,7 @@ class TeamForm extends React.Component {
                   className="form-control"
                   id="name"
                   placeholder="Enter Team Name"
+                  value={name}
                   onChange={this.changeNameEvent}
                   />
               </div>
@@ -64,6 +99,7 @@ class TeamForm extends React.Component {
                   className="form-control"
                   id="players"
                   placeholder="Enter Player Type"
+                  value={players}
                   onChange={this.changePlayersEvent}
                   />
               </div>
@@ -74,10 +110,16 @@ class TeamForm extends React.Component {
                   className="form-control"
                   id="coach"
                   placeholder="Enter Coach Name"
+                  value={coach}
                   onChange={this.changeCoachEvent}
                   />
               </div>
-              <button className="btn btn-dark" onClick={this.saveTeamEvent}>Save Team</button>
+              {
+                isEditing
+                  ? <button className="btn btn-light" onClick={this.editTeamEvent}>Edit Team</button>
+                  : <button className="btn btn-dark" onClick={this.saveTeamEvent}>Save Team</button>
+              }
+
           </form>
       );
     }
