@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Players from '../Players/Players';
+import PlayerForm from '../PlayerForm/PlayerForm';
 
 import playersData from '../../helpers/data/playersData';
 import teamData from '../../helpers/data/teamsData';
@@ -15,6 +16,7 @@ class SingleTeam extends React.Component {
     state = {
       team: {},
       players: [],
+      showForm: false,
     }
 
     getPlayers = () => {
@@ -42,18 +44,30 @@ class SingleTeam extends React.Component {
         .catch((err) => console.warn('delete players failed', err));
     }
 
+    createPlayer = (newPlayer) => {
+      playersData.createPlayer(newPlayer)
+        .then(() => {
+          this.getPlayers();
+          this.setState({ showForm: false });
+        })
+        .catch((err) => console.error(err));
+    }
+
     render() {
-      const { team, players } = this.state;
-      const { setSingleTeam } = this.props;
+      const { team, players, showForm } = this.state;
+      const { setSingleTeam, teamId } = this.props;
 
       const playerCards = players.map((player) => <Players key={player.id} player={player} deletePlayer={this.deletePlayer}/>);
 
       return (
             <div>
-                <button className="btn btn-danger" onClick={() => { setSingleTeam(''); }}>X</button>
+              <button className="btn btn-warning" onClick={() => { this.setState({ showForm: !showForm }); }}>
+                <i className={showForm ? 'far fa-times-circle fa-lg' : 'far fa-plus-square fa-lg'}></i></button>
+          {showForm ? <PlayerForm teamId={teamId} createPlayer={this.createPlayer} /> : ''}
                 <h2>{team.name}</h2>
                 <div className="card-columns">
                   {playerCards}
+                  <button className="btn btn-danger" onClick={() => { setSingleTeam(''); }}>X</button>
                 </div>
             </div>
       );
